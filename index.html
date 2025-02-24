@@ -767,8 +767,8 @@
                 <div class="col-lg-6">
                     <div class="blog-post-caption">
                         <h3>Posted on november 28</h3>
-                        <h2><a class="link-decoration" href="single-project.html">Create a Landing Page That Performs Great</a></h2>
-                        <a class="theme-btn theme-btn-two" href="single-project.html">Read more <i class="ri-arrow-right-line"></i></a>
+                        <h2><a class="link-decoration" href="#">Create a Landing Page That Performs Great</a></h2>
+                        <a class="theme-btn theme-btn-two" href="#">Read more <i class="ri-arrow-right-line"></i></a>
                     </div>
                 </div>
             </div>
@@ -788,8 +788,8 @@
                 <div class="col-lg-6">
                     <div class="blog-post-caption">
                         <h3>Posted on november 28</h3>
-                        <h2><a class="link-decoration" href="single-project.html">Starting and Growing a Career in Web Design</a></h2>
-                        <a class="theme-btn theme-btn-two" href="single-project.html">Read more <i class="ri-arrow-right-line"></i></a>
+                        <h2><a class="link-decoration" href="#">Starting and Growing a Career in Web Design</a></h2>
+                        <a class="theme-btn theme-btn-two" href="#">Read more <i class="ri-arrow-right-line"></i></a>
                     </div>
                 </div>
             </div>
@@ -809,8 +809,8 @@
                 <div class="col-lg-6">
                     <div class="blog-post-caption">
                         <h3>Posted on november 28</h3>
-                        <h2><a class="link-decoration" href="single-project.html">How Can Designers Prepare for the Future?</a></h2>
-                        <a class="theme-btn theme-btn-two" href="single-project.html">Read more <i class="ri-arrow-right-line"></i></a>
+                        <h2><a class="link-decoration" href="#">How Can Designers Prepare for the Future?</a></h2>
+                        <a class="theme-btn theme-btn-two" href="#">Read more <i class="ri-arrow-right-line"></i></a>
                     </div>
                 </div>
             </div>
@@ -865,12 +865,12 @@
                     <!-- DÉBUT ZONE FORMULAIRE DE CONTACT -->
                     <div class="col-lg-8">
                         <div class="contact-form contact-form-area wow fadeInUp delay-0-4s">
-                            <form id="contactForm" class="contactForm" name="contactForm" action="assets/php/form-process.php" method="post">
+                            <form id="contactForm" class="contactForm" name="contactForm" method="post">
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="name">Nom complet</label>
-                                            <input type="text" id="name" name="name" class="form-control" value="" placeholder="Steve Milner" required="" data-error="Veuillez entrer votre nom" />
+                                            <input type="text" id="name" name="from_name" class="form-control" value="" placeholder="Steve Milner"  data-error="Veuillez entrer votre nom" />
                                             <label for="name" class="for-icon"><i class="far fa-user"></i></label>
                                             <div class="help-block with-errors"></div>
                                         </div>
@@ -878,7 +878,7 @@
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="email">Adresse e-mail</label>
-                                            <input type="email" id="email" name="email" class="form-control" value="" placeholder="hello@websitename.com" required="" data-error="Veuillez entrer votre e-mail" />
+                                            <input type="email" id="email" name="reply_to" class="form-control" value="" placeholder="hello@websitename.com"  data-error="Veuillez entrer votre e-mail" />
                                             <label for="email" class="for-icon"><i class="far fa-envelope"></i></label>
                                             <div class="help-block with-errors"></div>
                                         </div>
@@ -886,7 +886,7 @@
                                     <div class="col-md-12">
                                         <div class="form-group">
                                             <label for="message">Votre message</label>
-                                            <textarea name="message" id="message" class="form-control" rows="4" placeholder="Écrivez votre message" required="" data-error="Veuillez écrire votre message"></textarea>
+                                            <textarea name="message" id="message" class="form-control" rows="4" placeholder="Écrivez votre message"  data-error="Veuillez écrire votre message"></textarea>
                                             <div class="help-block with-errors"></div>
                                         </div>
                                     </div>
@@ -895,7 +895,8 @@
                                             <button type="submit" class="theme-btn">
                                                 Envoyer le message <i class="ri-mail-line"></i>
                                             </button>
-                                            <div id="msgSubmit" class="hidden"></div>
+                                            <div id="msgSubmit" style="display: none; font-weight: bold; margin-top: 10px;"></div>
+
                                         </div>
                                     </div>
                                 </div>
@@ -1004,6 +1005,9 @@
     <script src="assets/js/wow.min.js"></script>
     <!-- SCRIPT JS-->
     <script src="assets/js/script.js"></script>
+    <!-- services d'envoie de mail -->
+     <script scr="assets/js/contact.js"></script>
+    <script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
 </body>
 
 </html>
