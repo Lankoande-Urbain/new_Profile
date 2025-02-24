@@ -20,11 +20,28 @@ document.addEventListener("DOMContentLoaded", function () {
          return;
       }
 
+      // Validation du nom
+      if (!validateName(fromName)) {
+         showMessage(msgSubmit, "Le nom ne peut contenir que des lettres et des espaces.", "error");
+         return;
+      }
+
+      // Sanitisation du message pour éviter les XSS
+      const sanitizedMessage = sanitizeMessage(message);
+
+      // Vérification du reCAPTCHA
+      const recaptchaResponse = grecaptcha.getResponse();
+      if (!recaptchaResponse) {
+         showMessage(msgSubmit, "Veuillez vérifier que vous n'êtes pas un robot.", "error");
+         return;
+      }
+
       // Envoi du mail avec EmailJS
       emailjs.send("service_7gkvs4e", "template_8zu9ij7", {
          from_name: fromName,
          reply_to: replyTo,
-         message: message
+         message: sanitizedMessage,
+         recaptcha_response: recaptchaResponse
       })
          .then(function () {
             showMessage(msgSubmit, "Message envoyé avec succès !", "success");
@@ -35,11 +52,25 @@ document.addEventListener("DOMContentLoaded", function () {
          });
    });
 
+   // Fonction de validation de l'email
    function validateEmail(email) {
       const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
       return re.test(email);
    }
 
+   // Fonction de validation du nom
+   function validateName(name) {
+      const re = /^[a-zA-Z\s]+$/; // Autorise uniquement les lettres et espaces
+      return re.test(name);
+   }
+
+   // Fonction de sanitisation du message pour éviter les XSS
+   function sanitizeMessage(message) {
+      const re = /<script.*?>.*?<\/script>/gi; // Recherche et supprime les balises <script>
+      return message.replace(re, '');
+   }
+
+   // Fonction pour afficher des messages de confirmation ou d'erreur
    function showMessage(element, message, type) {
       element.textContent = message;
       element.style.color = type === "success" ? "green" : "red";

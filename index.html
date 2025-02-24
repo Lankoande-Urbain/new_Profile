@@ -891,6 +891,12 @@
                                         </div>
                                     </div>
                                     <div class="col-md-12">
+                                        <div class="form-group">
+                                            <!-- reCAPTCHA -->
+                                            <div class="g-recaptcha" data-sitekey="votre_clé_publique"></div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12">
                                         <div class="form-group mb-0">
                                             <button type="submit" class="theme-btn">
                                                 Envoyer le message <i class="ri-mail-line"></i>
@@ -1006,8 +1012,10 @@
     <!-- SCRIPT JS-->
     <script src="assets/js/script.js"></script>
     <!-- services d'envoie de mail -->
-     <script scr="assets/js/contact.js"></script>
-    <script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
+    <script src="assets/js/contact.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <!-- recaptcha -->
+    <script type="text/javascript" src="https://www.google.com/recaptcha/api.js" async defer></script>
 </body>
 
 </html>
