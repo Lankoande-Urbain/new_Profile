@@ -3150,7 +3150,7 @@ ul.blog_pagination li a:hover {
     padding-right: 60q;
 }
 
-.single-side-bar {}
+/* .single-side-bar {} */
 
 .single-side-bar {
     -webkit-transition: 0.5s;
@@ -3160,3 +3160,4 @@ ul.blog_pagination li a:hover {
     padding: 25px;
     border: 1px solid var(--border-color);
 }
+
