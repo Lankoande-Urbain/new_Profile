@@ -6,12 +6,12 @@ Version      : 1.0
 * ----------------------------------------------------------------------------------------
 */
 
-(function($) {
+(function ($) {
 
     "use strict";
 
-	jQuery(document).on('ready', function(){
-	
+    jQuery(document).on('ready', function () {
+
 
 
 
@@ -21,7 +21,7 @@ Version      : 1.0
          * ----------------------------------------------------------------------------------------
          */
 
-        $('.nav-link-click').click(function() {
+        $('.nav-link-click').click(function () {
             $('.navbar-collapse').collapse('hide');
         });
 
@@ -31,7 +31,7 @@ Version      : 1.0
          * ----------------------------------------------------------------------------------------
          */
 
-        $(window).on('load', function() {
+        $(window).on('load', function () {
 
             $('.loadersss').fadeOut();
             $('#preloader-areasss').delay(350).fadeOut('slow');
@@ -39,7 +39,7 @@ Version      : 1.0
 
             // ## Project Filtering
             if ($('.project-masonry-active').length) {
-                $(this).imagesLoaded(function() {
+                $(this).imagesLoaded(function () {
                     $('.project-masonry-active').isotope({
                         // options
                         itemSelector: '.item',
@@ -50,18 +50,13 @@ Version      : 1.0
 
             // ## Blog Standard
             if ($('.blog-standard-wrap').length) {
-                $(this).imagesLoaded(function() {
+                $(this).imagesLoaded(function () {
                     $('.blog-standard-wrap').isotope({
                         // options
                         itemSelector: '.item',
                     });
                 });
             }
-
-
-
-
-
         });
 
         /*
@@ -98,7 +93,7 @@ Version      : 1.0
         progressPath.style.strokeDashoffset = pathLength;
         progressPath.getBoundingClientRect();
         progressPath.style.transition = progressPath.style.WebkitTransition = 'stroke-dashoffset 10ms linear';
-        var updateProgress = function() {
+        var updateProgress = function () {
             var scroll = $(window).scrollTop();
             var height = $(document).height() - $(window).height();
             var progress = pathLength - (scroll * pathLength / height);
@@ -108,14 +103,14 @@ Version      : 1.0
         $(window).scroll(updateProgress);
         var offset = 150;
         var duration = 550;
-        jQuery(window).on('scroll', function() {
+        jQuery(window).on('scroll', function () {
             if (jQuery(this).scrollTop() > offset) {
                 jQuery('.progress-wrap').addClass('active-progress');
             } else {
                 jQuery('.progress-wrap').removeClass('active-progress');
             }
         });
-        jQuery('.progress-wrap').on('click', function(event) {
+        jQuery('.progress-wrap').on('click', function (event) {
             event.preventDefault();
             jQuery('html, body').animate({
                 scrollTop: 0
@@ -133,7 +128,7 @@ Version      : 1.0
         var mobileWidth = 992;
         var navcollapse = $('.navigation li.dropdown');
 
-        navcollapse.hover(function() {
+        navcollapse.hover(function () {
             if ($(window).innerWidth() >= mobileWidth) {
                 $(this).children('ul').stop(true, false, true).slideToggle(300);
                 $(this).children('.megamenu').stop(true, false, true).slideToggle(300);
@@ -145,20 +140,20 @@ Version      : 1.0
             $('.main-header .navigation li.dropdown').append('<div class="dropdown-btn"><span class="fas fa-chevron-down"></span></div>');
 
             //Dropdown Button
-            $('.main-header .navigation li.dropdown .dropdown-btn').on('click', function() {
+            $('.main-header .navigation li.dropdown .dropdown-btn').on('click', function () {
                 $(this).prev('ul').slideToggle(500);
                 $(this).prev('.megamenu').slideToggle(800);
             });
 
             //Disable dropdown parent link
-            $('.navigation li.dropdown > a').on('click', function(e) {
+            $('.navigation li.dropdown > a').on('click', function (e) {
                 e.preventDefault();
             });
         }
 
         // Submenu Dropdown Toggle
         if ($('.main-header .main-menu').length) {
-            $('.main-header .main-menu .navbar-toggle').click(function() {
+            $('.main-header .main-menu .navbar-toggle').click(function () {
                 $(this).prev().prev().next().next().children('li.dropdown').hide();
             });
         }
@@ -166,7 +161,7 @@ Version      : 1.0
 
         /* ## Fact Counter + Text Count - Our Success */
         if ($('.counter-text-wrap').length) {
-            $('.counter-text-wrap').appear(function() {
+            $('.counter-text-wrap').appear(function () {
 
                 var $t = $(this),
                     n = $t.find(".count-text").attr("data-stop"),
@@ -181,10 +176,10 @@ Version      : 1.0
                     }, {
                         duration: r,
                         easing: "linear",
-                        step: function() {
+                        step: function () {
                             $t.find(".count-text").text(Math.floor(this.countNum));
                         },
-                        complete: function() {
+                        complete: function () {
                             $t.find(".count-text").text(this.countNum);
                         }
                     });
@@ -199,7 +194,7 @@ Version      : 1.0
 
         // ## Scroll to Top
         if ($('.scroll-to-target').length) {
-            $(".scroll-to-target").on('click', function() {
+            $(".scroll-to-target").on('click', function () {
                 var target = $(this).attr('data-target');
                 // animate
                 $('html, body').animate({
@@ -228,100 +223,100 @@ Version      : 1.0
 
 
     });
-	
-	
-        // ## Project Filter
-        $(".project-filter li").on('click', function() {
-            $(".project-filter li").removeClass("current");
-            $(this).addClass("current");
 
-            var selector = $(this).attr('data-filter');
-            $('.project-masonry-active').imagesLoaded(function() {
-                $(".project-masonry-active").isotope({
-                    itemSelector: '.item',
-                    filter: selector,
-                    masonry: {
-                        columnWidth: '.item'
-                    }
-                });
-            });
 
-        });
-		
-        /*
-         * ----------------------------------------------------------------------------------------
-         *  MAGNIFIC POPUP JS
-         * ----------------------------------------------------------------------------------------
-         */
+    // ## Project Filter
+    $(".project-filter li").on('click', function () {
+        $(".project-filter li").removeClass("current");
+        $(this).addClass("current");
 
-        var magnifPopup = function() {
-            $('.work-popup').magnificPopup({
-                type: 'image',
-                removalDelay: 300,
-                mainClass: 'mfp-with-zoom',
-                gallery: {
-                    enabled: true
-                },
-                zoom: {
-                    enabled: false, // By default it's false, so don't forget to enable it
-
-                    duration: 300, // duration of the effect, in milliseconds
-                    easing: 'ease-in-out', // CSS transition easing function
-
-                    // The "opener" function should return the element from which popup will be zoomed in
-                    // and to which popup will be scaled down
-                    // By defailt it looks for an image tag:
-                    opener: function(openerElement) {
-                        // openerElement is the element on which popup was initialized, in this case its <a> tag
-                        // you don't need to add "opener" option if this code matches your needs, it's defailt one.
-                        return openerElement.is('img') ? openerElement : openerElement.find('img');
-                    }
+        var selector = $(this).attr('data-filter');
+        $('.project-masonry-active').imagesLoaded(function () {
+            $(".project-masonry-active").isotope({
+                itemSelector: '.item',
+                filter: selector,
+                masonry: {
+                    columnWidth: '.item'
                 }
             });
+        });
+
+    });
+
+    /*
+     * ----------------------------------------------------------------------------------------
+     *  MAGNIFIC POPUP JS
+     * ----------------------------------------------------------------------------------------
+     */
+
+    var magnifPopup = function () {
+        $('.work-popup').magnificPopup({
+            type: 'image',
+            removalDelay: 300,
+            mainClass: 'mfp-with-zoom',
+            gallery: {
+                enabled: true
+            },
+            zoom: {
+                enabled: false, // By default it's false, so don't forget to enable it
+
+                duration: 300, // duration of the effect, in milliseconds
+                easing: 'ease-in-out', // CSS transition easing function
+
+                // The "opener" function should return the element from which popup will be zoomed in
+                // and to which popup will be scaled down
+                // By defailt it looks for an image tag:
+                opener: function (openerElement) {
+                    // openerElement is the element on which popup was initialized, in this case its <a> tag
+                    // you don't need to add "opener" option if this code matches your needs, it's defailt one.
+                    return openerElement.is('img') ? openerElement : openerElement.find('img');
+                }
+            }
+        });
 
 
-            $('.popup-youtube, .popup-vimeo, .popup-gmaps').magnificPopup({
-                disableOn: 700,
-                type: 'iframe',
-                mainClass: 'mfp-fade',
-                removalDelay: 160,
-                preloader: false,
+        $('.popup-youtube, .popup-vimeo, .popup-gmaps').magnificPopup({
+            disableOn: 700,
+            type: 'iframe',
+            mainClass: 'mfp-fade',
+            removalDelay: 160,
+            preloader: false,
 
-                fixedContentPos: false
-            });
+            fixedContentPos: false
+        });
 
-        };
-        // Call the functions 
-        magnifPopup();	
+    };
+    // Call the functions 
+    magnifPopup();
 
-        // ## Testimonials Active
-        if ($('.testimonials-wrap').length) {
-            $('.testimonials-wrap').slick({
-                dots: false,
-                infinite: true,
-                autoplay: true,
-                autoplaySpeed: 2000,
-                arrows: true,
-                speed: 1000,
-                focusOnSelect: false,
-                prevArrow: '.testimonial-prev',
-                nextArrow: '.testimonial-next',
-                slidesToShow: 2,
-                slidesToScroll: 1,
-                responsive: [{
-                    breakpoint: 767,
-                    settings: {
-                        slidesToShow: 1,
-                    }
-                }]
-            });
-        }
-		
+    // ## Testimonials Active
+    if ($('.testimonials-wrap').length) {
+        $('.testimonials-wrap').slick({
+            dots: false,
+            infinite: true,
+            autoplay: true,
+            autoplaySpeed: 2000,
+            arrows: true,
+            speed: 1000,
+            focusOnSelect: false,
+            prevArrow: '.testimonial-prev',
+            nextArrow: '.testimonial-next',
+            slidesToShow: 2,
+            slidesToScroll: 1,
+            responsive: [{
+                breakpoint: 767,
+                settings: {
+                    slidesToShow: 1,
+                }
+            }]
+        });
+    }
+
     /* ==========================================================================
        When document is resize, do
        ========================================================================== */
 
-    $(window).on('resize', function() {
+    $(window).on('resize', function () {
         var mobileWidth = 992;
         var navcollapse = $('.navigation li.dropdown');
         navcollapse.children('ul').hide();
@@ -334,7 +329,7 @@ Version      : 1.0
        When document is scroll, do
        ========================================================================== */
 
-    $(window).on('scroll', function() {
+    $(window).on('scroll', function () {
 
         // ## Header Style and Scroll to Top
         function headerStyle() {
@@ -407,7 +402,7 @@ Version      : 1.0
        When document is loaded, do
        ========================================================================== */
 
-    $(window).on('load', function() {
+    $(window).on('load', function () {
 
         const svg = document.getElementById("preloaderSvg");
         const tl = gsap.timeline();
@@ -415,16 +410,16 @@ Version      : 1.0
         const flat = "M0 2S175 1 500 1s500 1 500 1V0H0Z";
 
         tl.to(".preloader-heading .load-text , .preloader-heading .cont", {
-            delay: 1.5,
+            delay: 0.5,
             y: -100,
             opacity: 0,
         });
         tl.to(svg, {
-            duration: 0.5,
+            duration: 0.3,
             attr: { d: curve },
             ease: "power2.easeIn",
         }).to(svg, {
-            duration: 0.5,
+            duration: 0.3,
             attr: { d: flat },
             ease: "power2.easeOut",
         });
@@ -435,27 +430,24 @@ Version      : 1.0
             zIndex: -1,
             display: "none",
         });
-
-
-
     });
 
-	/*START MAP JS*/		
-	$(".map").hide();
-	
-	/*START SHOW FUNCTION*/
-	$(".map_title").on('click', function(){
-	$(".map").show(500);
-	$(".map_title").hide(500);
-	});
+    /*START MAP JS*/
+    $(".map").hide();
 
-	/*START HIDE FUNCTION*/
-	$(".close_btn").on('click', function(){
-		$(".map").hide(500);
-		$(".map_title").show(500);
-	});
-	/*END MAP JS*/
+    /*START SHOW FUNCTION*/
+    $(".map_title").on('click', function () {
+        $(".map").show(500);
+        $(".map_title").hide(500);
+    });
 
-    
+    /*START HIDE FUNCTION*/
+    $(".close_btn").on('click', function () {
+        $(".map").hide(500);
+        $(".map_title").show(500);
+    });
+    /*END MAP JS*/
+
+
 
 })(window.jQuery);
